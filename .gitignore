@@ -1,0 +1,34 @@
+# Ignore Loki data directory
+loki-data/
+
+# Ignore Docker Compose backup or copy files
+docker-compose copy.yml
+
+# OS/system files
+.DS_Store
+Thumbs.db
+
+# Editor swap/backup files
+*~
+*.swp
+*.swo
+*.bak
+*.tmp
+
+# Logs
+*.log
+
+# Ignore hidden files (optional, unless needed)
+.*
+!/.gitignore
+
+# Optional: ignore all YAML files except specific configs
+# Uncomment below if you want to restrict YAML files
+# *.yaml
+# !loki-config.yaml
+# !mimir-config.yaml
+# !grafana/provisioning/datasources/datasources.yml
+
+# If using IDEs
+.vscode/
+.idea/

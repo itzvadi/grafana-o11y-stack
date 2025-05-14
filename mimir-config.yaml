@@ -1,0 +1,32 @@
+server:
+  http_listen_port: 9009
+
+distributor:
+  ring:
+    kvstore:
+      store: inmemory
+
+ingester:
+  lifecycler:
+    ring:
+      kvstore:
+        store: inmemory
+
+compactor:
+  data_dir: /tmp/mimir/compactor
+
+blocks_storage:
+  backend: filesystem
+  filesystem:
+    dir: /tmp/mimir/tsdb
+
+store_gateway:
+  sharding_ring:
+    kvstore:
+      store: inmemory
+
+alertmanager:
+  enable_api: true
+
+ruler:
+  enable_api: true
