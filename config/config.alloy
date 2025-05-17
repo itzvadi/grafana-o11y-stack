@@ -21,7 +21,7 @@ prometheus.remote_write "metrics_service" {
 }
 
  local.file_match "local_files" {
-     path_targets = [{"__path__" = "/var/log/*.log"}]
+     path_targets = [{"__path__" = "/var/log/*.log"}, {"__path__" = "/logs/dummy.log"}]
      sync_period = "5s"
  }
 

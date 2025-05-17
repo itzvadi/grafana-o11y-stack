@@ -78,28 +78,43 @@ This dashboard provides a comprehensive overview of system resource metrics, inc
 Ensure your data source is configured to a Mimir or Prometheus-compatible endpoint for the metrics to display correctly.
 
 
-### 🛠️ Work in Progress: Loki Logs + Python Log Generator
+### 🛠️ Loki Logs with Python Log Generator and Dashboard
 
-We are currently working on:
+This setup uses a **Python script** running as a `log_generate` service via the included `Dockerfile` to generate dummy logs continuously. These logs are stored in `tools/logs/dummy.log` and forwarded to **Loki** for ingestion.
 
-* A **Loki-based dashboard** to view logs forwarded by Alloy from `/var/log/*.log`
-* A **Python script** to generate sample logs for testing Loki and filtering scenarios
+You can then visualize and explore these logs in **Grafana** using a **prebuilt dashboard** specifically designed to display all Loki logs in one place, with a clear breakdown by filename.
 
-These will be added soon in the `tools/` and `dashboards/` folders.
+This provides an end-to-end local observability stack to test log generation, collection, and visualization seamlessly.
 
 ---
 
 ## Project Structure
 
 ```
-├── diagrams/
-│   └── grafana-olly-stack.jpg         # Architecture diagram
-├── dashboards/                        # (Planned) Grafana JSON dashboards
-├── tools/                             # (Planned) Python log generator script
-├── docker-compose.yml                # Full service definition
-├── alloy-config.hcl                  # Alloy configuration
-└── README.md                         # This file
+├── config/                           # Configuration files for services
+│   ├── config.alloy
+│   ├── loki-config.yaml
+│   └── mimir-config.yaml
+├── diagrams/                        # Architecture diagrams and drawio files
+│   ├── grafana-olly-stack.drawio.drawio
+│   └── grafana-olly-stack.jpg
+├── docker-compose.yml               # Full docker-compose service definition
+├── dockerfile                      # Dockerfile for log_generate service
+├── grafana/                        # Grafana provisioning files
+│   └── provisioning/
+│       ├── dashboards/             # Prebuilt dashboards JSON and YAML
+│       │   ├── dashboards.yml
+│       │   ├── itzvadi-loki.json
+│       │   └── node-exporter.json
+│       └── datasources/            # Datasource definitions for Grafana
+│           └── datasources.yml
+├── README.md                       # This file
+└── tools/                         # Python log generator scripts and sample logs
+    ├── genDummylogs.py
+    └── logs/
+        └── dummy.log
 ```
+
 
 ---
 
