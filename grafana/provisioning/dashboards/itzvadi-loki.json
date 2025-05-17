@@ -18,8 +18,21 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 3,
-  "links": [],
+  "id": 2,
+  "links": [
+    {
+      "asDropdown": false,
+      "icon": "external link",
+      "includeVars": false,
+      "keepTime": false,
+      "tags": [],
+      "targetBlank": true,
+      "title": "GitHub",
+      "tooltip": "",
+      "type": "link",
+      "url": "https://github.com/itzvadi/grafana-o11y-stack#"
+    }
+  ],
   "panels": [
     {
       "datasource": {
@@ -174,5 +187,5 @@
   "timezone": "browser",
   "title": "Itzvadi Loki logs view",
   "uid": "a992f97c-0d12-43ae-a918-1c60678eeccf",
-  "version": 4
+  "version": 1
 }
