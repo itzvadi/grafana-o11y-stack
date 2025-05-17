@@ -1,4 +1,4 @@
-prometheus.scrape "MACOS" {
+prometheus.scrape "your_system" {
   // Collect metrics from the default listen address.
   targets = [{
     __address__ = "node_exporter:9100",
