@@ -1,7 +1,7 @@
 services:
   grafana:
     image: grafana/grafana:latest
-    container_name: grafana
+    container_name: itzvadi-grafana
     ports:
       - "3000:3000"
     volumes:
@@ -19,7 +19,7 @@ services:
 
   mimir:
     image: grafana/mimir:latest
-    container_name: mimir
+    container_name: itzvadi-mimir
     ports:
       - "9009:9009"
     command: ["-config.file=/etc/mimir.yaml"]
@@ -29,7 +29,7 @@ services:
 
   loki:
     image: grafana/loki:latest
-    container_name: loki
+    container_name: itzvadi-loki
     ports:
       - "3100:3100"
     command: ["-config.file=/etc/loki-local-config.yaml"]
@@ -39,9 +39,9 @@ services:
 
   alloy:
     image: grafana/alloy:latest
-    container_name: alloy
+    container_name: itzvadi-alloy
     ports:
-      - "12345:12345" # for Alloy metrics or debugging
+      - "12345:12345"
     command: ["run", "/etc/alloy/config.alloy","--server.http.listen-addr=0.0.0.0:12345", "--storage.path=/var/lib/alloy/data"]
     volumes:
       - ./config/config.alloy:/etc/alloy/config.alloy
@@ -51,10 +51,10 @@ services:
       - /:/rootfs:ro
       - ./tools/logs:/logs
 
-  # Optional Node Exporter (if Alloy is not scraping directly)
+
   node_exporter:
     image: prom/node-exporter:latest
-    container_name: node_exporter
+    container_name: itzvadi-node_exporter
     ports:
       - "9100:9100"
     restart: unless-stopped
