@@ -39,7 +39,7 @@ The goal is to demonstrate how a minimal, self-contained observability stack can
 
 ```bash
 # Start all services in detached mode
-docker compose up -d
+docker compose up -d --build
 
 # Shut down and remove volumes
 docker compose down -v
