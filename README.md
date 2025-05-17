@@ -19,7 +19,7 @@ The goal is to demonstrate how a minimal, self-contained observability stack can
 
 | Component         | Role            | Default Port | Description                                           |
 | ----------------- | --------------- | ------------ | ----------------------------------------------------- |
-| **Alloy**         | Agent           | N/A          | Central collector and forwarder of logs and metrics   |
+| **Alloy**         | Collector       | `12345`      | Central collector and forwarder of logs and metrics   |
 | **Loki**          | Logs backend    | `3100`       | Stores and queries log data                           |
 | **Mimir**         | Metrics backend | `9009`       | Stores time-series metrics (Prometheus-compatible)    |
 | **Grafana**       | Visualization   | `3000`       | Dashboard for viewing metrics and logs                |
@@ -62,21 +62,21 @@ You should wait a few seconds for all services to initialize.
 
 ## Dashboards
 
-### ✅ Node Exporter Full (Working)
+### ✅ Node Exporter Full (Auto-Provisioned)
 
-You can import the Node Exporter Full dashboard from Grafana Labs:
+The **Node Exporter Full** dashboard (ID: **1860**) is automatically installed via provisioning using the JSON file placed in the Grafana provisioning folder.
 
-* ID: **1860**
-* URL: [https://grafana.com/grafana/dashboards/1860](https://grafana.com/grafana/dashboards/1860)
+You don’t need to import it manually — simply open Grafana and navigate to the dashboard list to find it ready to use.
 
-Once imported, this dashboard gives a full view of system resource metrics like:
+This dashboard provides a comprehensive overview of system resource metrics, including:
 
-* CPU usage
-* Memory usage
-* Disk I/O
-* Network throughput
+- CPU usage  
+- Memory usage  
+- Disk I/O  
+- Network throughput  
 
-Make sure the data source is set to Mimir or Prometheus-compatible endpoint.
+Ensure your data source is configured to a Mimir or Prometheus-compatible endpoint for the metrics to display correctly.
+
 
 ### 🛠️ Work in Progress: Loki Logs + Python Log Generator
 
