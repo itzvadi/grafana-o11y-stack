@@ -23,7 +23,7 @@ services:
       - "9009:9009"
     command: ["-config.file=/etc/mimir.yaml"]
     volumes:
-      - ./mimir-config.yaml:/etc/mimir.yaml
+      - ./config/mimir-config.yaml:/etc/mimir.yaml
   loki:
     image: grafana/loki:latest
     container_name: loki
@@ -31,7 +31,7 @@ services:
       - "3100:3100"
     command: ["-config.file=/etc/loki-local-config.yaml"]
     volumes:
-     - ./loki-config.yaml:/etc/loki-local-config.yaml
+     - ./config/loki-config.yaml:/etc/loki-local-config.yaml
      - ./loki-data:/loki
 
   alloy:
@@ -41,7 +41,7 @@ services:
       - "12345:12345" # for Alloy metrics or debugging
     command: ["run", "/etc/alloy/config.alloy","--server.http.listen-addr=0.0.0.0:12345", "--storage.path=/var/lib/alloy/data"]
     volumes:
-      - ./alloy/config.alloy:/etc/alloy/config.alloy
+      - ./config/config.alloy:/etc/alloy/config.alloy
       - /var/log:/var/log:ro
       - /proc:/host/proc:ro
       - /sys:/host/sys:ro
