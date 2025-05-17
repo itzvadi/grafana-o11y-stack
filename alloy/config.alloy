@@ -1,16 +1,23 @@
 prometheus.scrape "MACOS" {
   // Collect metrics from the default listen address.
   targets = [{
-    __address__ = "localhost:9100",
+    __address__ = "node_exporter:9100",
   }]
   scrape_interval = "15s"
 
   forward_to = [prometheus.remote_write.metrics_service.receiver]
 }
+
+
 prometheus.remote_write "metrics_service" {
-    endpoint {
-		url = "http://mimir:9009/api/v1/push"
-}
+  // Send metrics to a Mimir instance
+  endpoint {
+    url = "http://mimir:9009/api/v1/push"
+
+    headers = {
+      "X-Scope-OrgID" = "staging",
+    }
+  }
 }
 
  local.file_match "local_files" {

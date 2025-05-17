@@ -2,7 +2,7 @@
 loki-data/
 
 # Ignore Docker Compose backup or copy files
-docker-compose copy.yml
+docker-compose copy*
 
 # OS/system files
 .DS_Store

@@ -21,7 +21,7 @@ services:
     container_name: mimir
     ports:
       - "9009:9009"
-    command: ["run","/etc/mimir.yaml"]
+    command: ["-config.file=/etc/mimir.yaml"]
     volumes:
       - ./mimir-config.yaml:/etc/mimir.yaml
   loki:
