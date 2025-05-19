@@ -37,10 +37,9 @@ The goal is to demonstrate how a minimal, self-contained observability stack can
 
 ## Running the Stack
 
-### Start the services
 
+### Build and start all services in detached mode
 ```bash
-# Build and start all services in detached mode
 docker compose up -d --build
 ```
 
@@ -48,10 +47,8 @@ docker compose up -d --build
 
 ---
 
-### Shut down the stack and clean up
-
+### Stop all running containers and remove volumes
 ```bash
-# Stop all running containers and remove volumes
 docker compose down -v
 ```
 
