@@ -23,7 +23,6 @@ The goal is to demonstrate how a minimal, self-contained observability stack can
 | **Loki**          | Logs backend    | `3100`       | Stores and queries log data                           |
 | **Mimir**         | Metrics backend | `9009`       | Stores time-series metrics (Prometheus-compatible)    |
 | **Grafana**       | Visualization   | `3000`       | Dashboard for viewing metrics and logs                |
-| **Node Exporter** | Metrics source  | `9100`       | Collects host-level metrics from the monitored system |
 
 ---
 
@@ -61,13 +60,12 @@ docker compose down -v
 | Grafana               | [http://localhost:3000](http://localhost:3000)                 |
 | Mimir (Push Endpoint) | `http://localhost:9009/api/v1/push`                            |
 | Loki (Push Endpoint)  | `http://localhost:3100/loki/api/v1/push`                       |
-| Node Exporter         | [http://localhost:9100/metrics](http://localhost:9100/metrics) |
 
 ---
 
 ## Dashboards
 
-### ✅ Node Exporter Full (Auto-Provisioned)
+### ✅ Node Exporter Full Dashboard (Auto-Provisioned)
 
 The **Node Exporter Full** dashboard (ID: **1860**) is automatically installed via provisioning using the JSON file placed in the Grafana provisioning folder.
 
