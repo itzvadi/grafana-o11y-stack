@@ -26,7 +26,6 @@ services:
     volumes:
       - ./config/mimir-config.yaml:/etc/mimir.yaml
 
-
   loki:
     image: grafana/loki:latest
     container_name: itzvadi-loki
