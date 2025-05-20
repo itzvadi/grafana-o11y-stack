@@ -51,14 +51,6 @@ services:
       - /:/rootfs:ro
       - ./tools/logs:/logs
 
-
-  node_exporter:
-    image: prom/node-exporter:latest
-    container_name: itzvadi-node_exporter
-    ports:
-      - "9100:9100"
-    restart: unless-stopped
-
   log-generator:
     build:
       context: .
